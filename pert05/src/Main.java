@@ -11,6 +11,8 @@ public class Main {
         BangunDatar[] daftar = {
             new Lingkaran(7),
             new Persegi(5),
+            new Segitiga(3.0, 4, 5),
+            new Trapesium(10, 6, 5, 5, 4)
             // TODO Langkah 2: tambahkan new Segitiga(3, 4, 5) setelah kelasnya dibuat.
             // TODO Langkah 4: tambahkan Trapesium setelah kelasnya dibuat.
         };
