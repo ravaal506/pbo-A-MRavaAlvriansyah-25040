@@ -1,0 +1,27 @@
+@startuml
+title Sequence Diagram: Instansiasi RekeningBank dengan Delegasi Constructor
+
+actor Caller as "Main"
+participant Compact as "RekeningBank(String, String)"
+participant Full as "RekeningBank(String, String, double)"
+
+Caller -> Compact : new RekeningBank("111", "Ani")
+activate Compact
+
+note right of Compact: Constructor ringkas dipanggil\noleh Main
+
+Compact -> Full : this("111", "Ani", 0)
+activate Full
+
+note right of Full: Delegasi ke constructor lengkap\n(this(...) adalah baris pertama)
+
+Full -> Full : Validasi nomor & saldoAwal
+Full -> Full : Inisialisasi: \nthis.nomor = "111"\nthis.pemilik = "Ani"\nthis.saldo = 0
+Full -> Full : jumlahRekening++ (static)
+
+Full --> Compact : selesai
+deactivate Full
+
+Compact --> Caller : referensi objek RekeningBank
+deactivate Compact
+@enduml
