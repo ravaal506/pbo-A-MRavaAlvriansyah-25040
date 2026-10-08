@@ -9,8 +9,9 @@ public enum TipeBahanBakar {
     //         BENSIN  -> "Bensin",  12000
     //         SOLAR   -> "Solar",   10500
     //         LISTRIK -> "Listrik",  2500   (per kWh)
-    BENSIN("Bensin", 0),
-    SOLAR("Solar", 0);
+    BENSIN("Bensin", 12000),
+    SOLAR("Solar", 10500),
+    LISTRIK("Listrik", 2500);
     // TODO 2 (Langkah 2): tambahkan LISTRIK.
 
     private final String label;
@@ -25,11 +26,11 @@ public enum TipeBahanBakar {
 
     /** TODO 3: enum boleh punya method — ini yang tidak bisa dilakukan konstanta int. */
     public double biayaPengisian(double jumlah) {
-        return 0;   // ganti
+        return jumlah * hargaPerSatuan;  // ganti
     }
 
     /** TODO 4: kembalikan true hanya untuk LISTRIK. Petunjuk: this == LISTRIK */
     public boolean ramahLingkungan() {
-        return false;   // ganti
+        return this == LISTRIK;  // ganti
     }
 }

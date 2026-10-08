@@ -18,9 +18,11 @@ public class Main {
     public static void main(String[] args) {
         Mobil mobil = new Mobil("Toyota Avanza", 2022, 45);
 
+        Sepeda sepeda = new Sepeda("Polygon", 2023);
+
         System.out.println("=== Semua Movable ===");
         // TODO Langkah 4: tambahkan Sepeda ke daftar setelah kelasnya dibuat.
-        for (Movable m : List.of(mobil)) {
+        for (Movable m : List.of(mobil, sepeda)) {
             m.bergerak();
             System.out.println("    " + m.ringkasanGerak());
         }

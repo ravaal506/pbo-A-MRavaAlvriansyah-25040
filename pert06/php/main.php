@@ -17,7 +17,8 @@ $mobil = new Mobil('Toyota Avanza', 2022, 45);
 
 echo '=== Semua Movable ===', PHP_EOL;
 // TODO Langkah 4: tambahkan $sepeda ke daftar setelah kelasnya dibuat.
-foreach ([$mobil] as $m) {
+$sepeda = new Sepeda('polygon',2023);
+foreach ([$mobil, $sepeda] as $m) {
     $m->bergerak();
     printf('    kecepatan maksimum %.0f km/jam%s', $m->kecepatanMaksimum(), PHP_EOL);
 }
@@ -39,3 +40,4 @@ foreach (TipeBahanBakar::cases() as $t) {
 echo PHP_EOL, '=== Trait dipakai kelas yang tidak sekerabat ===', PHP_EOL;
 $mobil->log('servis berkala selesai');
 // TODO Langkah 5: (new Pesanan())->log('pesanan #1042 dibuat');
+(new Pesanan() )->log('pesanan #1042 dibuat');

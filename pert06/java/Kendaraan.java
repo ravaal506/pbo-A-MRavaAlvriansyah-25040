@@ -14,7 +14,7 @@ public abstract class Kendaraan {
 
     /** TODO 1: kembalikan umur kendaraan, tidak boleh negatif. */
     public int umur(int tahunSekarang) {
-        return 0;   // ganti
+        return Math.max(0, tahunSekarang - tahun);
     }
 
     public abstract int jumlahRoda();
