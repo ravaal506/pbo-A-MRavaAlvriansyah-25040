@@ -126,12 +126,14 @@ Penjelasan: Berkas abstraksi.php memuat fondasi struktur OOP PHP berbasis pemisa
 Selain itu, terdapat deklarasi Trait Loggable yang memfasilitasi horizontal code reuse—memungkinkan kelas Mobil dan Pesanan (dua hirarki kelas yang tidak saling berhubungan) untuk langsung berbagi kapabilitas pencatatan pesan log tanpa perlu pewarisan tunggal (single inheritance).
 
 Screenshot Coding Main.php
+
 <img width="771" height="513" alt="main php" src="https://github.com/user-attachments/assets/a163aae6-d370-41bd-b541-edd603b1095e" />
 
 
 Penjelasan: Berkas main.php berfungsi sebagai skrip eksekusi utama yang menggunakan instruksi declare(strict_types=1) untuk menjamin ketepatan tipe data. Skrip ini memuat dependensi berkas via require_once, menguji type hinting pada fungsi isiPenuh(Fuelable $kendaraan), meliterasi koleksi enum TipeBahanBakar::cases(), serta memanggil metode log() dari trait Loggable pada instance Mobil dan Pesanan.
 
 Hasil Running Program PHP
+
 <img width="532" height="234" alt="run php" src="https://github.com/user-attachments/assets/74f4ed9a-fa31-41ae-8227-13d541fd3fac" />
 
 
