@@ -1,140 +1,152 @@
-Laporan Praktikum Pemrograman Berorientasi Objek (PBO) - Pertemuan 06
+# LAPORAN PRAKTIKUM PEMROGRAMAN BERBASIS OBJEK
 
-Nama : Muchamad Rava Alvriansyah
+## Informasi Praktikan
 
-NPM : 4525210040
+| Keterangan | Informasi |
+| :--- | :--- |
+| **Nama** | Muchamad Rava Alvriansyah |
+| **NPM** | 4525210040 |
+| **Kelas** | A |
+| **Mata Kuliah** | Pemrograman Berbasis Objek (PBO) |
+| **Pertemuan** | Pertemuan 06 - Abstraksi & Antarmuka |
+| **Tanggal** | 10 Oktober 2026 |
 
-Mata Kuliah : Pemrograman Berorientasi Objek
+---
 
-🎯 Pokok Bahasan & Topik Pembelajaran
+## 🎯 Pokok Bahasan & Topik Pembelajaran
 
-Abstraksi & Antarmuka (Abstract Class & Interface)
+* **Abstraksi & Antarmuka (Abstract Class & Interface):** Mengombinasikan *abstract class* untuk pewarisan struktur dasar dan *interface* untuk memberikan kapabilitas tertentu (*behavior/role*).
+* **Interface Segregation Principle (ISP):** Memisah peran/fungsi ke dalam *interface* yang spesifik agar suatu kelas tidak dipaksa mengimplementasikan *method* yang tidak diperlukannya.
+* **Enum dengan Perilaku/Method:** Menggunakan fitur Enum yang bertindak seperti objek lengkap yang menampung *field*, konstruktor, serta *method* logika/perhitungan.
+* **Default Method pada Java:** Memanfaatkan *default method* pada *interface* (Java 8+) untuk menyediakan implementasi bawaan tanpa merusak kelas-kelas turunannya.
 
-Mengombinasikan abstract class untuk pewarisan struktur dasar dan interface untuk memberikan kapabilitas tertentu (behavior/role).
+---
 
-Interface Segregation Principle (ISP)
+## 1. Implementasi Java
 
-Memisah peran/fungsi ke dalam interface yang spesifik agar suatu kelas tidak dipaksa mengimplementasikan method yang tidak diperlukannya.
+### 1.1. File: Fuelable.java
+**Penjelasan Kode:**
+Interface `Fuelable` dirancang secara independen dari kemampuan pergerakan fisik. Antarmuka ini menentukan tiga fungsi utama yang berhubungan dengan manajemen bahan bakar. Pemisahan antarmuka ini mematuhi *Interface Segregation Principle* (ISP); sistem tidak memaksa entitas bergerak tanpa mesin (seperti sepeda) untuk memiliki fungsi pengisian bahan bakar.
 
-Enum dengan Perilaku/Method
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Kesalahan kompilasi):** 
+  *(Tidak ada kesalahan / Antarmuka terdefinisi secara independen)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="953" height="545" alt="Fuelable.java" src="https://github.com/user-attachments/assets/e28cc1ac-8eac-44d2-a62e-3f9f4f9e3ee4" />
 
-Menggunakan fitur Enum pada Java yang bertindak seperti objek lengkap, yang dapat menampung field, konstruktor, serta method logika/perhitungan.
+---
 
-Default Method pada Java
+### 1.2. File: Kendaraan.java
+**Penjelasan Kode:**
+Kelas abstrak `Kendaraan` berfungsi menyerap kesamaan data (*state*) seluruh kendaraan, yaitu `merek` dan `tahun`. Variabel diset `protected final` untuk menjamin imutabilitas nilai dasar sekaligus memberikan akses langsung kepada kelas turunan. Fungsi `umur()` dibuat konkrit menggunakan `Math.max()` untuk mencegah *return* bernilai minus, sedangkan `jumlahRoda()` disajikan sebagai *abstract method* karena nilainya bervariasi secara spesifik di tiap entitas turunan.
 
-Memanfaatkan default method pada interface (Java 8+) untuk menyediakan implementasi bawaan tanpa merusak kelas-kelas turunannya.
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Kesalahan kompilasi):** 
+  *(Tidak ada kesalahan / Abstract class dikompilasi dengan benar)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="959" height="553" alt="Kendaraan.java" src="https://github.com/user-attachments/assets/4f25c88e-0581-4762-8ed3-4efac7f5417c" />
 
-💻 Implementasi Kode Program (Java)
+---
 
-1. Fuelable.java
+### 1.3. File: Movable.java
+**Penjelasan Kode:**
+Interface ini mendefinisikan sifat dasar entitas yang dapat berpindah tempat. Terdapat fitur *Default Method* pada `ringkasanGerak()` yang memfasilitasi *code reuse* di mana fungsi pembentukan format teks kecepatan sudah diimplementasikan di tingkat interface, sehingga kelas-kelas *implementor* tidak perlu melakukan *override* jika tidak ada kebutuhan khusus.
 
-<img width="953" height="545" alt="fluelable java" src="https://github.com/user-attachments/assets/e28cc1ac-8eac-44d2-a62e-3f9f4f9e3ee4" />
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Kesalahan kompilasi):** 
+  *(Tidak ada kesalahan / Default method berjalan dengan baik)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="944" height="561" alt="Movable.java" src="https://github.com/user-attachments/assets/c5904d7b-1242-4d62-8fba-d8a79d1e3516" />
 
+---
 
+### 1.4. File: Mobil.java
+**Penjelasan Kode:**
+`Mobil` merepresentasikan objek kompleks yang memanfaatkan pewarisan tunggal (`extends Kendaraan`) dan implementasi antarmuka ganda (`implements Movable, Fuelable`). Pada fungsi `isiBahanBakar()`, diterapkan teknik *defensive programming*: nilai pengisian bernilai nol/negatif langsung diabaikan, dan jumlah pengisian dibatasi oleh nilai `kapasitasTangki` menggunakan `Math.min()`.
 
-Penjelasan & Analisis Teknis:
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Kesalahan kompilasi):** 
+  *(Tidak ada kesalahan / Implementasi ganda berhasil)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="954" height="542" alt="Mobil.java" src="https://github.com/user-attachments/assets/0765f098-63d6-4e2e-8a6b-ec511139997a" />
 
-Fuelable dirancang secara independen dari kemampuan pergerakan fisik. Antarmuka ini menentukan tiga fungsi utama yang berhubungan dengan manajemen bahan bakar. Pemisahan antarmuka ini mematuhi Interface Segregation Principle (ISP); sistem tidak memaksa entitas bergerak tanpa mesin (seperti sepeda) untuk memiliki fungsi pengisian bahan bakar.
+---
 
-2. Kendaraan.java
+### 1.5. File: Sepeda.java
+**Penjelasan Kode:**
+Kelas `Sepeda` membuktikan keunggulan arsitektur berbasis interface terpisah. Sepeda mewarisi properti dasar `Kendaraan` dan menerapkan interface `Movable` saja. Kelas ini bersih dari *method* atau *field* yang berhubungan dengan bahan bakar karena tidak mengimplementasikan `Fuelable`.
 
-<img width="959" height="553" alt="kendaraan java" src="https://github.com/user-attachments/assets/4f25c88e-0581-4762-8ed3-4efac7f5417c" />
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Kesalahan kompilasi):** 
+  *(Tidak ada kesalahan / Bersih dari interface Fuelable)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="953" height="557" alt="Sepeda.java" src="https://github.com/user-attachments/assets/a0bfbec7-8ed2-4a18-9b80-54bc903fb433" />
 
+---
 
+### 1.6. File: TipeBahanBakar.java
+**Penjelasan Kode:**
+Pada Java, Enum melampaui sekadar daftar nilai konstanta. Enum `TipeBahanBakar` diperlakukan layaknya tipe data khusus dengan enkapsulasi *field* (`label`, `hargaPerSatuan`), konstruktor internal, serta *method* kalkulasi bisnis seperti `biayaPengisian()` dan evaluasi boolean `ramahLingkungan()`.
 
-Penjelasan & Analisis Teknis:
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Kesalahan kompilasi):** 
+  *(Tidak ada kesalahan / Konstruktor & method enum valid)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="959" height="547" alt="TipeBahanBakar.java" src="https://github.com/user-attachments/assets/ec835e10-7cee-45f2-beb7-6d0154403b5b" />
 
-Kelas abstrak Kendaraan berfungsi menyerap kesamaan data (state) seluruh kendaraan, yaitu merek dan tahun. Variabel diset protected final untuk menjamin imutabilitas nilai dasar sekaligus memberikan akses langsung kepada kelas turunan. Fungsi umur() dibuat konkrit menggunakan Math.max() untuk mencegah return bernilai minus, sedangkan jumlahRoda() disajikan sebagai abstract method karena nilainya bervariasi secara spesifik di tiap entitas turunan.
+---
 
-3. Movable.java
+### 1.7. File: Main.java
+**Penjelasan Kode:**
+Kelas `Main` mendemonstrasikan kekuatan polimorfisme antarmuka:
+* Perulangan `List.of(mobil, sepeda)` memperlakukan kedua objek sebagai tipe `Movable`, mengeksekusi perilaku gerak masing-masing.
+* Method `isiPenuh(Fuelable kendaraan)` menerima parameter tipe interface `Fuelable`. Method ini bekerja secara fleksibel untuk objek apa pun yang mengimplementasikan `Fuelable` tanpa peduli kelas konkretnya.
 
-<img width="944" height="561" alt="movable java" src="https://github.com/user-attachments/assets/c5904d7b-1242-4d62-8fba-d8a79d1e3516" />
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Kesalahan kompilasi):** 
+  *(Tidak ada kesalahan / Siap dijalankan)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="941" height="542" alt="Main.java" src="https://github.com/user-attachments/assets/82e4b2a6-a9db-4b77-a242-eafadbf2baee" />
 
-
-
-Penjelasan & Analisis Teknis:
-
-Interface ini mendefinisikan sifat dasar entitas yang dapat berpindah tempat. Menariknya, terdapat fitur Default Method pada ringkasanGerak(). Fitur ini memfasilitasi code reuse di mana fungsi pembentukan format teks kecepatan sudah diimplementasikan di tingkat interface, sehingga kelas-kelas implementor tidak perlu melakukan override jika tidak ada kebutuhan khusus.
-
-4. Mobil.java
-
-<img width="954" height="542" alt="mobil java" src="https://github.com/user-attachments/assets/0765f098-63d6-4e2e-8a6b-ec511139997a" />
-
-
-
-Penjelasan & Analisis Teknis:
-
-Mobil merepresentasikan objek kompleks yang memanfaatkan pewarisan tunggal (extends Kendaraan) dan implementasi antarmuka ganda (implements Movable, Fuelable). Pada fungsi isiBahanBakar(), diterpakan teknik defensive programming: nilai pengisian bernilai nol/negatif langsung diabaikan, dan jumlah pengisian dibatasi oleh nilai kapasitasTangki menggunakan Math.min().
-
-5. Sepeda.java
-
-<img width="953" height="557" alt="sepeda java" src="https://github.com/user-attachments/assets/a0bfbec7-8ed2-4a18-9b80-54bc903fb433" />
-
-
-
-
-Penjelasan & Analisis Teknis:
-
-Kelas Sepeda membuktikan keunggulan arsitektur berbasis interface terpisah. Sepeda mewarisi properti dasar Kendaraan dan menerapkan interface Movable saja. Kelas ini bersih dari method atau field yang berhubungan dengan bahan bakar karena tidak mengimplementasikan Fuelable.
-
-6. TipeBahanBakar.java
-
-<img width="959" height="547" alt="tipebahanbakar java" src="https://github.com/user-attachments/assets/ec835e10-7cee-45f2-beb7-6d0154403b5b" />
-
-
-
-Penjelasan & Analisis Teknis:
-
-Pada Java, Enum melampaui sekadar daftar nilai konstanta. Enum TipeBahanBakar diperlakukan layaknya tipe data khusus dengan enkapsulasi field (label, hargaPerSatuan), konstruktor internal, serta method kalkulasi bisnis seperti biayaPengisian() dan evaluasi boolean ramahLingkungan().
-
-7. Main.java
-
-<img width="941" height="542" alt="main java" src="https://github.com/user-attachments/assets/82e4b2a6-a9db-4b77-a242-eafadbf2baee" />
-
-
-
-Penjelasan & Analisis Teknis:
-
-Kelas Main mendemonstrasikan kekuatan polimorfisme antarmuka:
-
-Perulangan List.of(mobil, sepeda) memperlakukan kedua objek sebagai tipe Movable, mengeksekusi perilaku gerak masing-masing.
-
-Method isiPenuh(Fuelable kendaraan) menerima parameter tipe interface Fuelable. Method ini bekerja secara fleksibel untuk objek apa pun yang mengimplementasikan Fuelable tanpa peduli kelas konkretnya.
-
-🖥️ Output Eksekusi Program
-
+### Output
+**Output Program:**
 <img width="677" height="242" alt="run program java" src="https://github.com/user-attachments/assets/32d380bc-fa4c-4daa-bd72-d6a63ae3c8a6" />
 
+---
 
-Penjelasan Output:
+## 2. Implementasi PHP
 
-Blok 1: Membuktikan polimorfisme pada interface Movable, di mana pesan aksi melaju/dikayuh dipanggil sesuai tipe objek aslinya, diikuti deskripsi kecepatan dari default method.
+### 2.1. File: abstraksi.php
+**Penjelasan Kode:**
+Berkas `abstraksi.php` memuat fondasi struktur OOP PHP berbasis pemisahan peran. Berkas ini mendefinisikan interface `Movable` dan `Fuelable`, serta `TipeBahanBakar` sebagai *Backed Enum* berketikan string (fitur PHP 8.1+) yang memanfaatkan ungkapan `match` untuk pemetaan label dan harga. Selain itu, terdapat deklarasi Trait `Loggable` yang memfasilitasi *horizontal code reuse*—memungkinkan kelas `Mobil` dan `Pesanan` untuk langsung berbagi kapabilitas pencatatan pesan log tanpa perlu pewarisan tunggal (*single inheritance*).
 
-Blok 2: Menunjukkan pemanggilan method polimorfik isiPenuh(). Mobil dengan kapasitas 45 liter diisi dengan Bensin (Rp12.000/liter) menghasilkan total biaya Rp540.000.
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Galat logika):** 
+  *(Tidak ada galat / Trait & Enum terdefinisi secara presisi)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="917" height="557" alt="abstraksi" src="https://github.com/user-attachments/assets/901c3c3c-91f5-4b9b-8acd-e0dc6d723f07" />
 
-Blok 3: Menampilkan hasil iterasi dari seluruh nilai Enum TipeBahanBakar, mengonfirmasi bahwa LISTRIK diidentifikasi sebagai satu-satunya tipe yang ramah lingkungan (true).
+---
 
-2. Implementasi Bahasa PHP
+### 2.2. File: main.php
+**Penjelasan Kode:**
+Berkas `main.php` berfungsi sebagai skrip eksekusi utama yang menggunakan instruksi `declare(strict_types=1)` untuk menjamin ketepatan tipe data. Skrip ini memuat dependensi berkas via `require_once`, menguji *type hinting* pada fungsi `isiPenuh(Fuelable $kendaraan)`, meliterasi koleksi enum `TipeBahanBakar::cases()`, serta memanggil metode `log()` dari trait `Loggable` pada instance `Mobil` dan `Pesanan`.
 
-Screenshot Coding abstraksi.php
+**Bukti Eksekusi (Screenshot):**
+- **Before (Kondisi awal / Galat logika):** 
+  *(Tidak ada galat / Type checking terpenuhi)*
+- **After (Kondisi akhir / Eksekusi berhasil):** 
+  <img width="771" height="513" alt="main php" src="https://github.com/user-attachments/assets/a163aae6-d370-41bd-b541-edd603b1095e" />
 
-<img width="917" height="557" alt="abstraksi" src="https://github.com/user-attachments/assets/901c3c3c-91f5-4b9b-8acd-e0dc6d723f07" />
-
-
-Penjelasan: Berkas abstraksi.php memuat fondasi struktur OOP PHP berbasis pemisahan peran. Berkas ini mendefinisikan interface Movable dan Fuelable, serta TipeBahanBakar sebagai Backed Enum berketikan string (fitur PHP 8.1+) yang memanfaatkan ungkapan match untuk pemetaan label dan harga.
-
-Selain itu, terdapat deklarasi Trait Loggable yang memfasilitasi horizontal code reuse—memungkinkan kelas Mobil dan Pesanan (dua hirarki kelas yang tidak saling berhubungan) untuk langsung berbagi kapabilitas pencatatan pesan log tanpa perlu pewarisan tunggal (single inheritance).
-
-Screenshot Coding Main.php
-
-<img width="771" height="513" alt="main php" src="https://github.com/user-attachments/assets/a163aae6-d370-41bd-b541-edd603b1095e" />
-
-
-Penjelasan: Berkas main.php berfungsi sebagai skrip eksekusi utama yang menggunakan instruksi declare(strict_types=1) untuk menjamin ketepatan tipe data. Skrip ini memuat dependensi berkas via require_once, menguji type hinting pada fungsi isiPenuh(Fuelable $kendaraan), meliterasi koleksi enum TipeBahanBakar::cases(), serta memanggil metode log() dari trait Loggable pada instance Mobil dan Pesanan.
-
-Hasil Running Program PHP
-
+### Output
+**Output Program:**
 <img width="532" height="234" alt="run php" src="https://github.com/user-attachments/assets/74f4ed9a-fa31-41ae-8227-13d541fd3fac" />
 
+---
 
-Penjelasan Output: Output eksekusi skrip PHP mengonfirmasi kelancaran alur logika: penghitungan biaya bahan bakar terformat secara presisi, penanganan polimorfisme pada kelas Mobil dan Sepeda, iterasi enum dengan struktur kondisional match, serta pencetakan log berstempel waktu (timestamp) hasil penggunaan Trait.
+## 3. Kesimpulan
+
+ Melalui praktikum ini, dapat disimpulkan bahwa:
+ 1. Kombinasi **Abstract Class** dan **Interface** memungkinkan pembentukan arsitektur perangkat lunak yang terstruktur, di mana *Abstract Class* fokus pada kesamaan struktur data dasar (*state*), sedangkan *Interface* menangani pembagian peran/kapabilitas (*behavior*).
+ 2. Penerapan **Interface Segregation Principle (ISP)** mencegah pembebanan method yang tidak relevan pada kelas turunan (seperti kelas `Sepeda` yang tidak perlu memuat fungsi bahan bakar).
+ 3. Penggunaan **Enum dengan Method** pada Java serta **Backed Enum & Trait** pada PHP meningkatkan keamanan tipe data (*type safety*), fleksibilitas kode, serta mendukung *horizontal code reuse* tanpa terbatas pada struktur *single inheritance*.
