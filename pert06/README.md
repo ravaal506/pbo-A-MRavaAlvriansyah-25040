@@ -94,7 +94,8 @@ Pada Java, Enum melampaui sekadar daftar nilai konstanta. Enum `TipeBahanBakar` 
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Kesalahan kompilasi):** 
-  *(Tidak ada kesalahan / Konstruktor & method enum valid)*
+  <img width="721" height="466" alt="Screenshot 2026-10-10 111637" src="https://github.com/user-attachments/assets/1dba3bcc-42ac-4656-bc88-89037fb4fc5c" />
+
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="959" height="547" alt="TipeBahanBakar.java" src="https://github.com/user-attachments/assets/ec835e10-7cee-45f2-beb7-6d0154403b5b" />
 
@@ -108,7 +109,8 @@ Kelas `Main` mendemonstrasikan kekuatan polimorfisme antarmuka:
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Kesalahan kompilasi):** 
-  *(Tidak ada kesalahan / Siap dijalankan)*
+  <img width="654" height="482" alt="Screenshot 2026-10-10 111725" src="https://github.com/user-attachments/assets/108ef836-736a-47bf-aeac-2b20647961cc" />
+
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="941" height="542" alt="Main.java" src="https://github.com/user-attachments/assets/82e4b2a6-a9db-4b77-a242-eafadbf2baee" />
 
@@ -126,7 +128,8 @@ Berkas `abstraksi.php` memuat fondasi struktur OOP PHP berbasis pemisahan peran.
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Galat logika):** 
-  *(Tidak ada galat / Trait & Enum terdefinisi secara presisi)*
+  <img width="539" height="528" alt="Screenshot 2026-10-10 111835" src="https://github.com/user-attachments/assets/a17a3688-c429-4fb0-a6cd-c7873511b8b5" />
+
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="917" height="557" alt="abstraksi" src="https://github.com/user-attachments/assets/901c3c3c-91f5-4b9b-8acd-e0dc6d723f07" />
 
@@ -138,7 +141,8 @@ Berkas `main.php` berfungsi sebagai skrip eksekusi utama yang menggunakan instru
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Galat logika):** 
-  *(Tidak ada galat / Type checking terpenuhi)*
+  <img width="710" height="459" alt="Screenshot 2026-10-10 111924" src="https://github.com/user-attachments/assets/990ab4ec-a324-4006-a981-ccd5c0251bff" />
+
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="771" height="513" alt="main php" src="https://github.com/user-attachments/assets/a163aae6-d370-41bd-b541-edd603b1095e" />
 
