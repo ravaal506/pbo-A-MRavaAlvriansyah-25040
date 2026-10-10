@@ -30,7 +30,8 @@ Interface `Fuelable` dirancang secara independen dari kemampuan pergerakan fisik
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Kesalahan kompilasi):** 
-  *(Tidak ada kesalahan / Antarmuka terdefinisi secara independen)*
+  <img width="481" height="218" alt="Screenshot 2026-10-10 110551" src="https://github.com/user-attachments/assets/ae37af4e-2add-432d-9b2f-e9f48e0adf6a" />
+ 
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="953" height="545" alt="Fuelable.java" src="https://github.com/user-attachments/assets/e28cc1ac-8eac-44d2-a62e-3f9f4f9e3ee4" />
 
@@ -42,7 +43,8 @@ Kelas abstrak `Kendaraan` berfungsi menyerap kesamaan data (*state*) seluruh ken
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Kesalahan kompilasi):** 
-  *(Tidak ada kesalahan / Abstract class dikompilasi dengan benar)*
+  <img width="610" height="389" alt="Screenshot 2026-10-10 110857" src="https://github.com/user-attachments/assets/b5fd8d4d-f03e-4156-ae7f-6cfbd0929940" />
+
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="959" height="553" alt="Kendaraan.java" src="https://github.com/user-attachments/assets/4f25c88e-0581-4762-8ed3-4efac7f5417c" />
 
@@ -54,7 +56,8 @@ Interface ini mendefinisikan sifat dasar entitas yang dapat berpindah tempat. Te
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Kesalahan kompilasi):** 
-  *(Tidak ada kesalahan / Default method berjalan dengan baik)*
+  <img width="485" height="320" alt="Screenshot 2026-10-10 110945" src="https://github.com/user-attachments/assets/0eba22fc-fbc8-45a7-9c69-ae48563f17b2" />
+
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="944" height="561" alt="Movable.java" src="https://github.com/user-attachments/assets/c5904d7b-1242-4d62-8fba-d8a79d1e3516" />
 
@@ -66,7 +69,8 @@ Interface ini mendefinisikan sifat dasar entitas yang dapat berpindah tempat. Te
 
 **Bukti Eksekusi (Screenshot):**
 - **Before (Kondisi awal / Kesalahan kompilasi):** 
-  *(Tidak ada kesalahan / Implementasi ganda berhasil)*
+  <img width="703" height="465" alt="Screenshot 2026-10-10 111041" src="https://github.com/user-attachments/assets/876bce40-733a-45ee-8e5d-7dada45c85c8" />
+
 - **After (Kondisi akhir / Eksekusi berhasil):** 
   <img width="954" height="542" alt="Mobil.java" src="https://github.com/user-attachments/assets/0765f098-63d6-4e2e-8a6b-ec511139997a" />
 
