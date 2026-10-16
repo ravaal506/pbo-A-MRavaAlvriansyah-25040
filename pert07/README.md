@@ -25,12 +25,13 @@ Hubungan `Buku` dan `Bab` dibuat sebagai komposisi. `Bab` adalah nested class de
 
 - Before (kondisi awal / belum diimplementasi):
 
-  ![SS Before Buku.java]<img width="922" height="512" alt="image" src="https://github.com/user-attachments/assets/114592fb-9bca-4f53-bfae-a461581f8a3a" />
+<img width="922" height="512" alt="image" src="https://github.com/user-attachments/assets/114592fb-9bca-4f53-bfae-a461581f8a3a" />
 
 
 - After (kondisi akhir / eksekusi berhasil):
 
-  ![SS After Buku.java](img/after-buku.png)
+  <img width="542" height="524" alt="buku java" src="https://github.com/user-attachments/assets/23c29be6-bbe1-4ff4-b0a8-e69d3ccbcd15" />
+
 
 ### 1.2. `Jurusan.java`
 
@@ -42,12 +43,13 @@ Hubungan `Buku` dan `Bab` dibuat sebagai komposisi. `Bab` adalah nested class de
 
 - Before (kondisi awal / belum diimplementasi):
 
-  ![SS Before Jurusan.java]<img width="765" height="514" alt="image" src="https://github.com/user-attachments/assets/5b3159d2-146b-4928-98ea-3fc41c184d21" />
+  ]<img width="765" height="514" alt="image" src="https://github.com/user-attachments/assets/5b3159d2-146b-4928-98ea-3fc41c184d21" />
 
 
-- After (kondisi akhir / eksekusi berhasil):
+- After (kondisi akhir / eksekusi berhasil)
 
-  ![SS After Jurusan.java](img/after-jurusan.png)
+  <img width="538" height="509" alt="jurusan java" src="https://github.com/user-attachments/assets/57f3ebc4-fd5e-4552-b4e8-1fcbc8ababef" />
+
 
 ### 1.3. `PerpustakaanService.java`
 
@@ -59,12 +61,13 @@ Kelas layanan yang mengelola koleksi buku dan transaksi perpustakaan. Relasinya 
 
 - Before (kondisi awal / belum diimplementasi):
 
-  ![SS Before PerpustakaanService.java]<img width="655" height="496" alt="image" src="https://github.com/user-attachments/assets/0481c507-43bb-4546-9527-e8bd312b981f" />
+  <img width="655" height="496" alt="image" src="https://github.com/user-attachments/assets/0481c507-43bb-4546-9527-e8bd312b981f" />
 
 
 - After (kondisi akhir / eksekusi berhasil):
 
-  ![SS After PerpustakaanService.java](img/after-perpustakaan-service.png)
+  <img width="563" height="482" alt="perpustakanservice java" src="https://github.com/user-attachments/assets/f0ceea69-7f4b-42d8-9c09-c8c574077d1c" />
+
 
 ### 1.4. `Main.java`
 
@@ -76,16 +79,18 @@ Entry point pengujian. Berisi penambahan `Bab` ke `Buku`, pembuktian bahwa `getB
 
 - Before (kondisi awal / belum diimplementasi):
 
-  ![SS Before Main.java]<img width="683" height="514" alt="image" src="https://github.com/user-attachments/assets/945a7a93-4ff1-4c49-9c32-dce4663ff410" />
+  <img width="683" height="514" alt="image" src="https://github.com/user-attachments/assets/945a7a93-4ff1-4c49-9c32-dce4663ff410" />
 
 
-- After (kondisi akhir / eksekusi berhasil):
+- After (kondisi akhir / eksekusi berhasil)
 
-  ![SS After Main.java](img/after-main-java.png)
+  <img width="840" height="518" alt="main java" src="https://github.com/user-attachments/assets/088e1e4f-6335-4a8c-bdd7-da2ade95245d" />
 
+  
 ### Output Java
 
-![Hasil Running Java](img/output-java.png)
+<img width="315" height="157" alt="run java" src="https://github.com/user-attachments/assets/2a4ce0d6-4d45-4e93-8a81-2a1f5cd96840" />
+
 
 **Penjelasan Output:** Program menampilkan data buku beserta bab-babnya, menolak manipulasi koleksi bab dari luar, dan menampilkan proses pendaftaran serta pengeluaran mahasiswa tanpa menghapus objek mahasiswa itu sendiri.
 
@@ -110,12 +115,13 @@ Berisi struktur komposisi dan agregasi di PHP. `Bab` memakai properti `readonly`
 
 - Before (kondisi awal / galat logika):
 
-  ![SS Before relasi.php]<img width="671" height="512" alt="image" src="https://github.com/user-attachments/assets/0c546718-1d14-471f-b10e-69c2174cf07f" />
+  <img width="671" height="512" alt="image" src="https://github.com/user-attachments/assets/0c546718-1d14-471f-b10e-69c2174cf07f" />
 
 
 - After (kondisi akhir / eksekusi berhasil):
 
-  ![SS After relasi.php](img/after-relasi.png)
+  <img width="757" height="530" alt="relasi php" src="https://github.com/user-attachments/assets/acf78777-78ef-4a22-a584-9b93823bee5c" />
+
 
 ### 2.2. `main.php`
 
@@ -127,16 +133,18 @@ Skrip utama yang mengimpor `relasi.php`. Menguji pembentukan komposisi `Buku` da
 
 - Before (kondisi awal / galat logika):
 
-  ![SS Before main.php]<img width="721" height="464" alt="image" src="https://github.com/user-attachments/assets/73993bc0-8467-4635-8bca-7f79bab25018" />
+  <img width="721" height="464" alt="image" src="https://github.com/user-attachments/assets/73993bc0-8467-4635-8bca-7f79bab25018" />
 
 
 - After (kondisi akhir / eksekusi berhasil):
 
-  ![SS After main.php](img/after-main-php.png)
+  <img width="806" height="451" alt="main php" src="https://github.com/user-attachments/assets/a06e24e1-73fc-430f-a6c5-0c30e6ab56bd" />
+
 
 ### Output PHP
 
-![Hasil Running PHP](img/output-php.png)
+<img width="391" height="169" alt="run php" src="https://github.com/user-attachments/assets/8d4ddaa3-241f-4679-8daf-1be03c05beb1" />
+
 
 **Penjelasan Output:** Program berjalan lancar, menampilkan struktur komposisi buku dan bab, serta membuktikan bahwa objek `Mahasiswa` berdiri sendiri di luar `Jurusan`.
 
